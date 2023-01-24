@@ -1,6 +1,8 @@
-package org.launchcode.java.demos.lsn3classes1;
+package chapterfour.exercises;
 
 import java.util.ArrayList;
+import java.util.Objects;
+
 public class SchoolPractice {
     public static void main(String[] args) {
         // Instantiate your Student class for part 2 here!
@@ -70,6 +72,23 @@ public class SchoolPractice {
             public ArrayList<Student> getEnrolledStudents() {
                 return enrolledStudents;
             }
+
+            public String toString() {
+                return topic + " is a Course taught by Professor " + getInstructor().getLastName() + " with " + getEnrolledStudents().toArray().length + " students.";
+            }
+
+            @Override
+            public boolean equals(Object o) {
+                if (this == o) return true;
+                if (o == null || getClass() != o.getClass()) return false;
+                Course course = (Course) o;
+                return topic.equals(course.topic) && instructor.equals(course.instructor) && enrolledStudents.equals(course.enrolledStudents);
+            }
+
+            @Override
+            public int hashCode() {
+                return Objects.hash(topic, instructor, enrolledStudents);
+            }
         }
         ArrayList<Student> enrolledStudents = new ArrayList<>();
         enrolledStudents.add(michael);
@@ -79,5 +98,6 @@ public class SchoolPractice {
         System.out.println(introToHistory.getTopic());
         System.out.println(introToHistory.getInstructor().getLastName());
         System.out.println(introToHistory.getEnrolledStudents().get(0).getName() + ", " + introToHistory.getEnrolledStudents().get(1).getName());
+        System.out.println(introToHistory.toString());
     }
 }
