@@ -1,9 +1,10 @@
-package org.launchcode.java.demos.lsn5unittesting.test;
+package chaptersix.exercises;
 
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
-import org.launchcode.java.demos.lsn5unittesting.main.Car;
+
 public class CarTest {
 
     Car test_car;
